@@ -2,6 +2,21 @@
 All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/).
 
+## [7.2.5](https://github.com/unabandoned/insert-module-globals/compare/insert-module-globals-v7.2.4...insert-module-globals-v7.2.5) (2026-08-14)
+
+
+### Bug Fixes
+
+* repoint JSONStream at its [@unabandoned](https://github.com/unabandoned) fork ([#12](https://github.com/unabandoned/insert-module-globals/issues/12)) ([1501209](https://github.com/unabandoned/insert-module-globals/commit/150120929039255e079ee35e73288f40c970d8b7))
+
+
+### Dependencies & maintenance
+
+* add .unabandoned.yml dashboard metadata ([#8](https://github.com/unabandoned/insert-module-globals/issues/8)) ([9ad8f77](https://github.com/unabandoned/insert-module-globals/commit/9ad8f77802c151fecfddd22a4b3251f03c0730cb))
+* **deps:** update unabandoned/.github digest to 88ce617 ([#9](https://github.com/unabandoned/insert-module-globals/issues/9)) ([29d63ba](https://github.com/unabandoned/insert-module-globals/commit/29d63ba375f54a2e8924fc278debecc8c5179b3b))
+* **deps:** update unabandoned/.github digest to d493a18 ([#11](https://github.com/unabandoned/insert-module-globals/issues/11)) ([2f1b4ff](https://github.com/unabandoned/insert-module-globals/commit/2f1b4ff45dbd6fb54b493b92d2b2ea8da9e7f8a1))
+* pin reusable workflows to the @unabandoned/.github v1.0.0 release ([#15](https://github.com/unabandoned/insert-module-globals/issues/15)) ([927760a](https://github.com/unabandoned/insert-module-globals/commit/927760ab11575caf39834f5794390931a17d7aca))
+
 ## [7.2.4](https://github.com/unabandoned/insert-module-globals/compare/insert-module-globals-v7.2.3...insert-module-globals-v7.2.4) (2026-08-14)
 
 
