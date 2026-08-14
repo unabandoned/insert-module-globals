@@ -1,0 +1,23 @@
+schema: 1
+
+package: "@unabandoned/insert-module-globals"
+
+upstream:
+  repo: browserify/insert-module-globals
+  reason: "unmaintained upstream in the browserify ecosystem — left idle while its dependency tree ages"
+
+summary: >-
+  Detects and injects implicit Node globals (process, Buffer, __dirname, etc.)
+  into modules as they pass through a module-deps stream.
+
+why-forked: >-
+  A core browserify pipeline stage that went unmaintained while its dependency
+  tree aged; forked so Renovate keeps that tree current for consumers.
+
+status: active
+
+used-by:
+  - consumer: "@unabandoned/browserify"
+    purpose: "Shims Node's implicit module globals into browser bundles."
+
+tags: [browserify, globals, process, buffer]
