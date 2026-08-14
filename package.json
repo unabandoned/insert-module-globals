@@ -1,6 +1,6 @@
 {
   "name": "@unabandoned/insert-module-globals",
-  "version": "7.2.1",
+  "version": "7.2.2",
   "description": "insert implicit module globals into a module-deps stream",
   "main": "index.js",
   "bin": {
