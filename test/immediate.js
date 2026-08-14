@@ -1,4 +1,4 @@
-var test = require('tape');
+var test = require('./tap-adapter');
 var mdeps = require('module-deps');
 var bpack = require('browser-pack');
 var insert = require('../');
@@ -15,8 +15,14 @@ test('immediate', function (t) {
         var c = {
             setTimeout: setTimeout,
             clearTimeout: clearTimeout,
+            setImmediate: setImmediate,
+            clearImmediate: clearImmediate,
             T: t
         };
+        // timers-browserify@2 sources setImmediate/clearImmediate off the
+        // global object (self/global) rather than implementing them itself, so
+        // the sandbox must expose them the way a browser global would.
+        c.self = c;
         t.ok(/require\("timers"\)/.test(src), 'timers required in source');
         t.notOk(/require\("\//.test(src), 'absolute path not required in source');
         vm.runInNewContext(src, c);

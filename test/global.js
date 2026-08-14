@@ -1,4 +1,4 @@
-var test = require('tape');
+var test = require('./tap-adapter');
 var vm = require('vm');
 var concat = require('concat-stream');
 

@@ -1,7 +1,41 @@
 var undeclaredIdentifiers = require('undeclared-identifiers');
-var through = require('through2');
+var through = require('through2').default;
 var merge = require('xtend');
-var parse = require('acorn-node').parse;
+var acorn = require('acorn');
+
+// defined(): the first argument that is not undefined. Replaces the tiny
+// `defined` runtime dependency acorn-node pulled in.
+function defined () {
+    for (var i = 0; i < arguments.length; i++) {
+        if (arguments[i] !== undefined) return arguments[i];
+    }
+}
+
+// Local acorn-node-compatible parse wrapper. acorn-node bundled a set of
+// plugins and defaults; acorn 8 with ecmaVersion 'latest' natively parses
+// everything those plugins added (bigint, class fields, static class features,
+// numeric separators, import.meta, `export * as ns from`), so we call acorn
+// directly while replicating acorn-node's default options exactly. The AST is
+// consumed by undeclared-identifiers, so parsing behaviour is preserved.
+function parse (src, opts) {
+    if (!opts) opts = {};
+    var acornOpts = {
+        ecmaVersion: 'latest',
+        allowHashBang: true,
+        allowReturnOutsideFunction: true,
+        ranges: defined(opts.ranges, opts.range),
+        locations: defined(opts.locations, opts.loc),
+        allowReserved: defined(opts.allowReserved, true),
+        allowImportExportEverywhere: defined(opts.allowImportExportEverywhere, false)
+    };
+
+    if (opts.ecmaVersion != null) acornOpts.ecmaVersion = opts.ecmaVersion;
+    if (opts.sourceType != null) acornOpts.sourceType = opts.sourceType;
+    if (opts.allowHashBang != null) acornOpts.allowHashBang = opts.allowHashBang;
+    if (opts.allowReturnOutsideFunction != null) acornOpts.allowReturnOutsideFunction = opts.allowReturnOutsideFunction;
+
+    return acorn.parse(src, acornOpts);
+}
 
 var path = require('path');
 var isAbsolute = path.isAbsolute || require('path-is-absolute');
@@ -88,7 +122,7 @@ module.exports = function (file, opts) {
     
     function write (chunk, enc, next) { chunks.push(chunk); next() }
     
-    function end () {
+    function end (done) {
         var self = this;
         var source = Buffer.isBuffer(chunks[0])
             ? Buffer.concat(chunks).toString('utf8')
@@ -97,13 +131,12 @@ module.exports = function (file, opts) {
         source = source
             .replace(/^\ufeff/, '')
             .replace(/^#![^\n]*\n/, '\n');
-        
+
         if (opts.always !== true && !quick.test(source)) {
-            this.push(source);
-            this.push(null);
-            return;
+            self.push(source);
+            return done();
         }
-        
+
         try {
             var undeclared = opts.always
                 ? { identifiers: varNames, properties: [] }
@@ -116,9 +149,9 @@ module.exports = function (file, opts) {
             );
             e.type = 'syntax';
             e.filename = file;
-            return this.emit('error', e);
+            return done(e);
         }
-        
+
         var globals = {};
         
         varNames.forEach(function (name) {
@@ -142,8 +175,15 @@ module.exports = function (file, opts) {
             self.emit('global', name);
         });
         
-        this.push(closeOver(globals, source, file, opts));
-        this.push(null);
+        // closeOver may return a string synchronously, or a Promise for a
+        // string when a source map is generated (combine-source-map's comment()
+        // is now asynchronous). Handle both uniformly.
+        Promise.resolve(closeOver(globals, source, file, opts)).then(function (out) {
+            self.push(out);
+            done();
+        }, function (err) {
+            done(err);
+        });
     }
 };
 
@@ -186,8 +226,12 @@ function closeOver (globals, src, file, opts) {
     var sourceMap = combineSourceMap.create().addFile(
         { sourceFile: sourceFile, source: src},
         { line: 1 });
-    return combineSourceMap.removeComments(wrappedSource) + "\n"
-        + sourceMap.comment();
+    // @unabandoned/combine-source-map's comment() is asynchronous (it combines
+    // maps lazily and returns a Promise); await it and assemble the annotated
+    // source once the sourceMappingURL comment is ready.
+    return sourceMap.comment().then(function (comment) {
+        return combineSourceMap.removeComments(wrappedSource) + "\n" + comment;
+    });
 }
 
 function countprops (props, name) {
