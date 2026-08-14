@@ -2,7 +2,7 @@ var test = require('./tap-adapter');
 var mdeps = require('module-deps');
 var bpack = require('browser-pack');
 var insert = require('../');
-var concat = require('concat-stream');
+var concat = require('./lib/collect');
 var path = require('path');
 var fs = require('fs');
 var vm = require('vm');
@@ -23,8 +23,8 @@ test('subdir', function (t) {
     deps.write({ transform: inserter, global: true });
     deps.end({
         id: 'main',
-        // Fake the file path so that the relative path to is-buffer becomes
-        // "node_modules/is-buffer/index.js"
+        // Fake the file path so that the relative path to the vendored
+        // is-buffer shim becomes "./lib/is-buffer.js"
         file: path.join(__dirname, '../subdir_test.js'),
         source: fs.readFileSync(__dirname + '/subdir/main.js')
     });
