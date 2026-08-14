@@ -1,6 +1,6 @@
 var test = require('./tap-adapter');
 var vm = require('vm');
-var concat = require('concat-stream');
+var concat = require('./lib/collect');
 
 var path = require('path');
 var insert = require('../');

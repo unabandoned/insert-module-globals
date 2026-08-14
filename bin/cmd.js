@@ -2,8 +2,17 @@
 
 var insert = require('../');
 var through = require('through2').default;
-var concat = require('concat-stream');
+var Writable = require('node:stream').Writable;
 var JSONStream = require('JSONStream');
+
+// Tiny concat-stream replacement: pipe a stream in, get a single Buffer back.
+function concat (cb) {
+    var chunks = [];
+    return new Writable({
+        write: function (c, e, n) { chunks.push(Buffer.from(c)); n() },
+        final: function (done) { cb(Buffer.concat(chunks)); done() }
+    });
+}
 
 var basedir = process.argv[2] || process.cwd();
 

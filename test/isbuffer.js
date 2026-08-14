@@ -2,11 +2,11 @@ var test = require('./tap-adapter');
 var mdeps = require('module-deps');
 var bpack = require('browser-pack');
 var insert = require('../');
-var concat = require('concat-stream');
+var concat = require('./lib/collect');
 var vm = require('vm');
 // use is-buffer instead of builtin Buffer.isBuffer. The builtin
 // does `instanceof` which does not work on the browserified version
-var isBuffer = require('is-buffer');
+var isBuffer = require('../lib/is-buffer.js');
 
 test('isbuffer', function (t) {
     t.plan(5);

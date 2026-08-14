@@ -2,7 +2,7 @@ var test = require('./tap-adapter')
 var mdeps = require('module-deps');
 var bpack = require('browser-pack');
 var insert = require('../');
-var concat = require('concat-stream');
+var concat = require('./lib/collect');
 var vm = require('vm');
 
 test('always true insert', function (t) {
@@ -10,7 +10,7 @@ test('always true insert', function (t) {
     var s = mdeps({
         modules: {
             buffer: require.resolve('buffer/'),
-            timers: require.resolve('timers-browserify')
+            timers: require.resolve('./lib/timers.js')
         }
     });
     s.pipe(bpack({ raw: true })).pipe(concat(function (src) {
@@ -34,7 +34,7 @@ test('always true insert custom globals without defaults', function (t) {
     var s = mdeps({
         modules: {
             buffer: require.resolve('buffer/'),
-            timers: require.resolve('timers-browserify')
+            timers: require.resolve('./lib/timers.js')
         }
     });
     s.pipe(bpack({ raw: true })).pipe(concat(function (src) {
@@ -69,7 +69,7 @@ test('always truthy-but-not-true insert hidden from quick test is not really ins
         var s = mdeps({
             modules: {
                 buffer: require.resolve('buffer/'),
-                timers: require.resolve('timers-browserify')
+                timers: require.resolve('./lib/timers.js')
             }
         });
         s.pipe(bpack({ raw: true })).pipe(concat(function (src) {
@@ -106,7 +106,7 @@ test('inserted names do not cause const name collisions', function (t) {
     var s = mdeps({
         modules: {
             buffer: require.resolve('buffer/'),
-            timers: require.resolve('timers-browserify')
+            timers: require.resolve('./lib/timers.js')
         }
     });
     s.on('error', t.fail);

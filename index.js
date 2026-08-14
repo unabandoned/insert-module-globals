@@ -1,6 +1,5 @@
 var undeclaredIdentifiers = require('undeclared-identifiers');
 var through = require('through2').default;
-var merge = require('xtend');
 var acorn = require('acorn');
 
 // defined(): the first argument that is not undefined. Replaces the tiny
@@ -38,9 +37,9 @@ function parse (src, opts) {
 }
 
 var path = require('path');
-var isAbsolute = path.isAbsolute || require('path-is-absolute');
-var processPath = require.resolve('process/browser.js');
-var isbufferPath = require.resolve('is-buffer')
+var isAbsolute = path.isAbsolute;
+var processPath = require.resolve('./lib/process-browser.js');
+var isbufferPath = require.resolve('./lib/is-buffer.js');
 var combineSourceMap = require('combine-source-map');
 
 function getRelativeRequirePath(fullPath, fromPath) {
@@ -107,7 +106,7 @@ module.exports = function (file, opts) {
     if (!opts) opts = {};
     
     var basedir = opts.basedir || '/';
-    var vars = merge(defaultVars, opts.vars);
+    var vars = Object.assign({}, defaultVars, opts.vars);
     var varNames = Object.keys(vars).filter(function(name) {
         return typeof vars[name] === 'function';
     });

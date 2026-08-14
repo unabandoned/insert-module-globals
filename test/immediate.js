@@ -2,13 +2,13 @@ var test = require('./tap-adapter');
 var mdeps = require('module-deps');
 var bpack = require('browser-pack');
 var insert = require('../');
-var concat = require('concat-stream');
+var concat = require('./lib/collect');
 var vm = require('vm');
 
 test('immediate', function (t) {
     t.plan(3);
     var deps = mdeps({
-        modules: { timers: require.resolve('timers-browserify') }
+        modules: { timers: require.resolve('./lib/timers.js') }
     });
     var pack = bpack({ raw: true, hasExports: true });
     deps.pipe(pack).pipe(concat(function (src) {
@@ -19,9 +19,10 @@ test('immediate', function (t) {
             clearImmediate: clearImmediate,
             T: t
         };
-        // timers-browserify@2 sources setImmediate/clearImmediate off the
-        // global object (self/global) rather than implementing them itself, so
-        // the sandbox must expose them the way a browser global would.
+        // The vendored timers shim (test/lib/timers.js) re-exports
+        // setImmediate/clearImmediate off the global object rather than
+        // implementing them itself, so the sandbox must expose them the way a
+        // browser global would.
         c.self = c;
         t.ok(/require\("timers"\)/.test(src), 'timers required in source');
         t.notOk(/require\("\//.test(src), 'absolute path not required in source');

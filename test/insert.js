@@ -2,7 +2,7 @@ var test = require('./tap-adapter');
 var mdeps = require('module-deps');
 var bpack = require('browser-pack');
 var insert = require('../');
-var concat = require('concat-stream');
+var concat = require('./lib/collect');
 var vm = require('vm');
 
 test('process.nextTick inserts', function (t) {
