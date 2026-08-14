@@ -1,4 +1,4 @@
-var test = require('tape');
+var test = require('./tap-adapter');
 var convert = require('convert-source-map');
 var insert = require('../');
 var mdeps = require('module-deps');

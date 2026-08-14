@@ -1,4 +1,4 @@
-var test = require('tape');
+var test = require('./tap-adapter');
 var mdeps = require('module-deps');
 var bpack = require('browser-pack');
 var insert = require('../');

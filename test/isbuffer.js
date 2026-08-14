@@ -1,4 +1,4 @@
-var test = require('tape');
+var test = require('./tap-adapter');
 var mdeps = require('module-deps');
 var bpack = require('browser-pack');
 var insert = require('../');
@@ -10,7 +10,7 @@ var isBuffer = require('is-buffer');
 
 test('isbuffer', function (t) {
     t.plan(5);
-    var deps = mdeps()
+    var deps = mdeps({ modules: { buffer: require.resolve('buffer/') } })
     var pack = bpack({ raw: true, hasExports: true });
     deps.pipe(pack).pipe(concat(function (src) {
         var c = { global: {} };
@@ -27,7 +27,7 @@ test('isbuffer', function (t) {
 
 test('isbuffer (and Buffer.from)', function (t) {
     t.plan(5);
-    var deps = mdeps()
+    var deps = mdeps({ modules: { buffer: require.resolve('buffer/') } })
     var pack = bpack({ raw: true, hasExports: true });
     deps.pipe(pack).pipe(concat(function (src) {
         var c = { global: {} };
@@ -44,7 +44,7 @@ test('isbuffer (and Buffer.from)', function (t) {
 
 test('isbuffer (and new Buffer)', function (t) {
     t.plan(5);
-    var deps = mdeps()
+    var deps = mdeps({ modules: { buffer: require.resolve('buffer/') } })
     var pack = bpack({ raw: true, hasExports: true });
     deps.pipe(pack).pipe(concat(function (src) {
         var c = { global: {} };

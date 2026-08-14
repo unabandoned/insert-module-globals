@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 
 var insert = require('../');
-var through = require('through2');
+var through = require('through2').default;
 var concat = require('concat-stream');
 var JSONStream = require('JSONStream');
 
