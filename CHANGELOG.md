@@ -2,6 +2,15 @@
 All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/).
 
+## [7.2.6](https://github.com/unabandoned/insert-module-globals/compare/insert-module-globals-v7.2.5...insert-module-globals-v7.2.6) (2026-08-15)
+
+
+### Dependencies & maintenance
+
+* **deps:** update dependency browser-pack to v6.1.4 ([#16](https://github.com/unabandoned/insert-module-globals/issues/16)) ([25d6167](https://github.com/unabandoned/insert-module-globals/commit/25d6167308f9688b9c09b7e10a5046da53f9b0a3))
+* **deps:** update dependency module-deps to v6.2.8 ([#17](https://github.com/unabandoned/insert-module-globals/issues/17)) ([4423bb1](https://github.com/unabandoned/insert-module-globals/commit/4423bb187151c988246d3b95168277c8cc1e718c))
+* pin reusable workflows to the @unabandoned/.github v1.0.0 release ([#14](https://github.com/unabandoned/insert-module-globals/issues/14)) ([e543e20](https://github.com/unabandoned/insert-module-globals/commit/e543e202353de119f6182fdababde1741d482e43))
+
 ## [7.2.5](https://github.com/unabandoned/insert-module-globals/compare/insert-module-globals-v7.2.4...insert-module-globals-v7.2.5) (2026-08-14)
 
 
