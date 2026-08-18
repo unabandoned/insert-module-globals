@@ -2,6 +2,15 @@
 All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/).
 
+## [7.2.7](https://github.com/unabandoned/insert-module-globals/compare/insert-module-globals-v7.2.6...insert-module-globals-v7.2.7) (2026-08-18)
+
+
+### Dependencies & maintenance
+
+* **deps:** update commitlint monorepo to v21.2.2 ([#19](https://github.com/unabandoned/insert-module-globals/issues/19)) ([31aabdc](https://github.com/unabandoned/insert-module-globals/commit/31aabdc800e229484e436fb27e38cfef041c7999))
+* **deps:** update dependency module-deps to v6.2.9 ([#22](https://github.com/unabandoned/insert-module-globals/issues/22)) ([8159013](https://github.com/unabandoned/insert-module-globals/commit/8159013e3d9d7a79849f1145bc750b807e15f348))
+* **deps:** update unabandoned/.github action to v1.0.1 ([#21](https://github.com/unabandoned/insert-module-globals/issues/21)) ([ebc671b](https://github.com/unabandoned/insert-module-globals/commit/ebc671b500d3d93528c96d09b5cacce5d77c52b2))
+
 ## [7.2.6](https://github.com/unabandoned/insert-module-globals/compare/insert-module-globals-v7.2.5...insert-module-globals-v7.2.6) (2026-08-15)
 
 
