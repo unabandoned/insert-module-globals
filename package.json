@@ -22,7 +22,7 @@
     "browser-pack": "npm:@unabandoned/browser-pack@6.1.5",
     "buffer": "npm:@unabandoned/buffer@6.0.6",
     "convert-source-map": "2.0.0",
-    "module-deps": "npm:@unabandoned/module-deps@6.2.9"
+    "module-deps": "npm:@unabandoned/module-deps@6.2.10"
   },
   "scripts": {
     "prepare": "git config core.hooksPath .githooks || true",
