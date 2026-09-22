@@ -1,5 +1,5 @@
 var undeclaredIdentifiers = require('undeclared-identifiers');
-var through = require('through2').default;
+var through = require('./through');
 var acorn = require('acorn');
 
 // defined(): the first argument that is not undefined. Replaces the tiny
