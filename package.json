@@ -10,10 +10,10 @@
     "node": ">=22.12"
   },
   "dependencies": {
+    "@unabandoned/readable-stream": "^4.8.3",
     "JSONStream": "npm:@unabandoned/jsonstream@^1",
     "acorn": "8.18.0",
     "combine-source-map": "npm:@unabandoned/combine-source-map@^1",
-    "through2": "5.0.11",
     "undeclared-identifiers": "npm:@unabandoned/undeclared-identifiers@^1"
   },
   "devDependencies": {
