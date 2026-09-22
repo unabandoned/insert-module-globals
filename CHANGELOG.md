@@ -2,6 +2,23 @@
 All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/).
 
+## [7.3.0](https://github.com/unabandoned/insert-module-globals/compare/insert-module-globals-v7.2.7...insert-module-globals-v7.3.0) (2026-09-22)
+
+
+### Features
+
+* replace through2 with the slice of it this package uses ([#32](https://github.com/unabandoned/insert-module-globals/issues/32)) ([2a341aa](https://github.com/unabandoned/insert-module-globals/commit/2a341aac13c15ea288e897b47513cf137d434eab))
+
+
+### Dependencies & maintenance
+
+* **deps:** update dependency browser-pack to v6.1.5 ([#25](https://github.com/unabandoned/insert-module-globals/issues/25)) ([3cca611](https://github.com/unabandoned/insert-module-globals/commit/3cca61115299e57e7807575160dcd56c69a3f695))
+* **deps:** update dependency buffer to v6.0.6 ([#27](https://github.com/unabandoned/insert-module-globals/issues/27)) ([f72395c](https://github.com/unabandoned/insert-module-globals/commit/f72395c8823133f555cd1c8a69310c16b5dadba6))
+* **deps:** update dependency module-deps to v6.2.10 ([#26](https://github.com/unabandoned/insert-module-globals/issues/26)) ([ef1a6d8](https://github.com/unabandoned/insert-module-globals/commit/ef1a6d870bf130d730a5bbc83803b4b438b24f17))
+* **deps:** update unabandoned/.github action to v1.0.4 ([#29](https://github.com/unabandoned/insert-module-globals/issues/29)) ([618dc1c](https://github.com/unabandoned/insert-module-globals/commit/618dc1c60da43a51c727db01cd05248b68b230bc))
+* **deps:** update unabandoned/.github action to v1.0.5 ([#30](https://github.com/unabandoned/insert-module-globals/issues/30)) ([49cfbd8](https://github.com/unabandoned/insert-module-globals/commit/49cfbd840736ec977be40c2e92cbefa7453a1533))
+* **deps:** update unabandoned/.github action to v1.1.0 ([#31](https://github.com/unabandoned/insert-module-globals/issues/31)) ([7e22d8e](https://github.com/unabandoned/insert-module-globals/commit/7e22d8eb91eab3c94bdf7dbb87cf4059d55153f5))
+
 ## [7.2.7](https://github.com/unabandoned/insert-module-globals/compare/insert-module-globals-v7.2.6...insert-module-globals-v7.2.7) (2026-08-23)
 
 
