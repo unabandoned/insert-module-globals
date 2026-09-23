@@ -1,6 +1,13 @@
 {
   "name": "@unabandoned/insert-module-globals",
   "version": "7.3.1",
+  "files": [
+    "CHANGELOG.md",
+    "bin",
+    "index.js",
+    "lib",
+    "through.js"
+  ],
   "description": "insert implicit module globals into a module-deps stream",
   "main": "index.js",
   "bin": {
