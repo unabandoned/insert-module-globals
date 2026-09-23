@@ -2,6 +2,13 @@
 All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/).
 
+## [7.3.1](https://github.com/unabandoned/insert-module-globals/compare/insert-module-globals-v7.3.0...insert-module-globals-v7.3.1) (2026-09-23)
+
+
+### Bug Fixes
+
+* stop dev-only commits from cutting releases ([#35](https://github.com/unabandoned/insert-module-globals/issues/35)) ([3c48b51](https://github.com/unabandoned/insert-module-globals/commit/3c48b51367b55b52a2eda15298e2d1ff9100a5f5))
+
 ## [7.3.0](https://github.com/unabandoned/insert-module-globals/compare/insert-module-globals-v7.2.7...insert-module-globals-v7.3.0) (2026-09-22)
 
 
