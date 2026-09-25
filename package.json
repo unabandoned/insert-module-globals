@@ -26,7 +26,7 @@
   "devDependencies": {
     "@commitlint/cli": "21.2.3",
     "@commitlint/config-conventional": "21.2.3",
-    "browser-pack": "npm:@unabandoned/browser-pack@6.1.5",
+    "browser-pack": "npm:@unabandoned/browser-pack@6.1.6",
     "buffer": "npm:@unabandoned/buffer@6.0.6",
     "convert-source-map": "2.0.0",
     "module-deps": "npm:@unabandoned/module-deps@6.2.10"
