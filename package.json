@@ -29,7 +29,7 @@
     "browser-pack": "npm:@unabandoned/browser-pack@6.1.6",
     "buffer": "npm:@unabandoned/buffer@6.0.7",
     "convert-source-map": "2.0.0",
-    "module-deps": "npm:@unabandoned/module-deps@6.2.10"
+    "module-deps": "npm:@unabandoned/module-deps@6.2.11"
   },
   "scripts": {
     "prepare": "git config core.hooksPath .githooks || true",
