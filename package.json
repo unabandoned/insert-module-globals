@@ -19,7 +19,7 @@
   "dependencies": {
     "@unabandoned/readable-stream": "^4.8.3",
     "JSONStream": "npm:@unabandoned/jsonstream@^1",
-    "acorn": "8.18.0",
+    "acorn": "8.19.0",
     "combine-source-map": "npm:@unabandoned/combine-source-map@^1",
     "undeclared-identifiers": "npm:@unabandoned/undeclared-identifiers@^1"
   },
