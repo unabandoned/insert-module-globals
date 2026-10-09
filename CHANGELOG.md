@@ -2,6 +2,13 @@
 All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/).
 
+## [7.3.3](https://github.com/unabandoned/insert-module-globals/compare/insert-module-globals-v7.3.2...insert-module-globals-v7.3.3) (2026-10-09)
+
+
+### Bug Fixes
+
+* depend on readable-stream via the npm alias so it dedupes ([#49](https://github.com/unabandoned/insert-module-globals/issues/49)) ([eed72bd](https://github.com/unabandoned/insert-module-globals/commit/eed72bd84297e135e39a04c74c5405d35f6cf7d9))
+
 ## [7.3.2](https://github.com/unabandoned/insert-module-globals/compare/insert-module-globals-v7.3.1...insert-module-globals-v7.3.2) (2026-10-08)
 
 
