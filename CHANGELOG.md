@@ -2,6 +2,13 @@
 All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/).
 
+## [7.3.2](https://github.com/unabandoned/insert-module-globals/compare/insert-module-globals-v7.3.1...insert-module-globals-v7.3.2) (2026-10-08)
+
+
+### Bug Fixes
+
+* **deps:** update dependency acorn to v8.19.0 ([#47](https://github.com/unabandoned/insert-module-globals/issues/47)) ([194723f](https://github.com/unabandoned/insert-module-globals/commit/194723ff3d7ab70f2fe14acfb057c7ee494ee4e8))
+
 ## [7.3.1](https://github.com/unabandoned/insert-module-globals/compare/insert-module-globals-v7.3.0...insert-module-globals-v7.3.1) (2026-09-23)
 
 
