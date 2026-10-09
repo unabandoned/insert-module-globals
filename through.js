@@ -1,6 +1,6 @@
 'use strict';
 
-// The slice of through2 this package uses, over @unabandoned/readable-stream.
+// The slice of through2 this package uses, over readable-stream (aliased to @unabandoned/readable-stream).
 //
 // through2 itself is maintained, so this is not an adoption — the problem is
 // that it binds to upstream readable-stream, which is abandoned and brings
@@ -13,7 +13,7 @@
 // functions given. through2 v5's async-generator and `.ctor` support is not
 // used here and is not recreated.
 
-var Transform = require('@unabandoned/readable-stream').Transform;
+var Transform = require('readable-stream').Transform;
 
 function make(options, write, end) {
 	if (typeof options === 'function') {
